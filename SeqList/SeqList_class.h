@@ -38,6 +38,7 @@ public:
 		}
 		return *this;
 	}
+	//жиди[]
 	DataType& operator[](size_t index)
 	{
 		return _array[index];

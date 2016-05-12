@@ -3,6 +3,7 @@ using namespace std;
 #include<windows.h>
 #include"SeqList_class.h"
 
+//SeqList() & SeqList(SeqList &s) & operator=()
 void Test1()
 {
 	int array1[5] = { 1, 2, 3, 4, 5 };
