@@ -11,7 +11,7 @@ public:
 		,_size(size)
 		,_capacity(size)
 	{
-		memcpy(_array,array,sizeof(int)*size);
+		memcpy(_array,array,sizeof(int)*size); 
 	}
 	~SeqList()
 	{
@@ -21,13 +21,15 @@ public:
 			_size = 0;
 		}
 	}
-	SeqList(SeqList& s)
+	//拷贝构造使用深拷贝
+	SeqList(SeqList& s)      
 		:_array(NULL)
 	{
 		SeqList tmp(s._array, s._size);
 		Swap(tmp);
 	}
-	SeqList& operator=(const SeqList& s)
+	//赋值运算符操作同样使用深拷贝
+	SeqList& operator=(const SeqList& s) 
 	{
 		if (_array != s._array)
 		{
@@ -50,7 +52,8 @@ public:
 	}
 	void PushBack(const DataType& x)
 	{
-		_CheckCapacity();
+		//容量检查,容量不足进行扩容
+		_CheckCapacity();      
 		_array[_size++] = x;
 	}
 	void PopBack()
@@ -60,6 +63,7 @@ public:
 			_size--;
 		}
 	}
+	//在指定位置插入数据
 	void Insert(size_t pos,const DataType x)
 	{
 		_CheckCapacity();
@@ -70,6 +74,7 @@ public:
 		_array[pos] = x;
 		_size++;
 	}
+	//删除指定位置的数据
 	void Earse(size_t pos)
 	{
 		for (size_t i = pos; i < _size-1;++i)
@@ -78,6 +83,7 @@ public:
 		}
 		_size--;
 	}
+	//查找指定数据
 	int Find(const DataType& x)
 	{
 		for (size_t i = 0; i < _size;++i)
@@ -97,6 +103,7 @@ public:
 	{
 		return _capacity;
 	}
+	//增容
 	void Reserve(size_t size)
 	{
 		if (size > _capacity)

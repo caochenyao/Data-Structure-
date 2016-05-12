@@ -22,6 +22,7 @@ public:
 	    , _tail(NULL)
 	{
 	}
+	//拷贝构造,一个节点一个节点的拷贝
 	Slist(const Slist& s)
 	{
 		SlistNode* s_begin = s._head;
@@ -37,6 +38,7 @@ public:
 		_tail = begin;
 		_tail->_next = NULL;
 	}
+	//赋值运算符重载
 	Slist& operator=(const Slist& s)
 	{
 		SlistNode* s_begin = s._head;
@@ -121,6 +123,7 @@ public:
 		}
 		cout << "NULL" << endl;
 	}
+	//释放
 	void Destory()
 	{
 		SlistNode* begin = _head;
