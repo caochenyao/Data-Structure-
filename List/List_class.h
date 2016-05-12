@@ -10,8 +10,8 @@ struct ListNode
 	{
 	}
 	DataType _data;
-	ListNode* _next;
-	ListNode* _prev;
+	ListNode* _next;           //后续节点
+	ListNode* _prev;           //前驱节点
 };
 
 class List
