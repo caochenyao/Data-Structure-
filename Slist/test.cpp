@@ -1,7 +1,7 @@
 #include"Slist_class.h"
 #include<windows.h>
 
-void Test1()
+void Test()
 {
 	Slist s1;
 	s1.PushBack(1);
@@ -26,7 +26,7 @@ void Test1()
 
 int main()
 {
-	Test1();
+	Test();
 
 	system("pause");
 	return 0;

@@ -123,7 +123,7 @@ public:
 		}
 		cout << "NULL" << endl;
 	}
-	//ÊÍ·Å
+	//ÊÍ·Å¿Õ¼ä
 	void Destory()
 	{
 		SlistNode* begin = _head;
