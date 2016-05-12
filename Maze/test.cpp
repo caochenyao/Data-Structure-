@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	Testmaze();
+	MazeTest();
 
 	system("pause");
 	return 0;

@@ -1,6 +1,7 @@
 #pragma once
 #include<assert.h>
 #include<stack>
+
 //读取文件中的矩阵
 void GetMaze(int* a,int row,int col)
 {
@@ -67,15 +68,16 @@ stack<Pos> GetPath(int* a,int rowsize,int colsize,Pos enter)
 		{
 			return path;
 		}
-		//上
+		//向上
 		next.row--;
 		if (IsAccess(a, rowsize, colsize,next))
 		{
+			//满足条件,值置为2,该节点压入栈
 			a[next.row*colsize + next.col] = 2;
 			path.push(next);
 			continue;
 		}
-        //下
+        //向下
 		next = top;
 		next.row++;
 		if (IsAccess(a, rowsize, colsize, next))
@@ -84,7 +86,7 @@ stack<Pos> GetPath(int* a,int rowsize,int colsize,Pos enter)
 			path.push(next);
 			continue;
 		}
-		//左
+		//向左
 		next = top;
 		next.col--;
 		if (IsAccess(a, rowsize, colsize, next))
@@ -93,7 +95,7 @@ stack<Pos> GetPath(int* a,int rowsize,int colsize,Pos enter)
 			path.push(next);
 			continue;
 		}
-		//右
+		//向右
 		next = top;
 		next.col++;
 		if (IsAccess(a, rowsize, colsize, next))
@@ -111,7 +113,7 @@ stack<Pos> GetPath(int* a,int rowsize,int colsize,Pos enter)
 	return path;
 }
 
-void Testmaze()
+void MazeTest()
 {
 	int a[10][10] = {};
 	GetMaze((int*)a,10,10);
