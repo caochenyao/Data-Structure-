@@ -32,6 +32,7 @@ void Test()
 	t2.Insert(ret,6);
 	t2.Print();
 
+	//operator=
 	List t3;
 	t3=t;
 	t3.Print();

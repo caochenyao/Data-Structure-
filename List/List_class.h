@@ -160,6 +160,7 @@ public:
 		}
 	}
 private:
+	// Õ∑≈ø’º‰
 	void Clear()
 	{
 		while (_head)
