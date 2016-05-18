@@ -156,6 +156,88 @@ protected:
 		_PrevOrder(curroot->_left);
 		_PrevOrder(curroot->_right);
 	}
+	void PrevOrder_NonR()
+	{
+		stack<BinaryTreeNode<T>*> s;
+		if (_root)
+			s.push(_root);
+
+		while (!s.empty())
+		{
+			BinaryTreeNode<T>* top = s.top();
+			s.pop();
+			cout << top->_data << " ";
+
+			if (top->_right)
+			{
+				s.push(top->_right);
+			}
+
+			if (top->_left)
+			{
+				s.push(top->_left);
+			}
+		}
+
+		cout << endl;
+	}
+
+	void InOrder_NonR()
+	{
+		stack<BinaryTreeNode<T>*> s;
+		BinaryTreeNode<T>* cur = _root;
+		while (cur || !s.empty())
+		{
+			// 将cur指向树的所有左路节点入栈
+			while (cur)
+			{
+				s.push(cur);
+				cur = cur->_left;
+			}
+
+			// 访问节点，并让cur指向右子树
+			if (!s.empty())
+			{
+				BinaryTreeNode<T>* top = s.top();
+				cout << top->_data << " ";
+				s.pop();
+
+				cur = top->_right;
+			}
+		}
+
+		cout << endl;
+	}
+
+	void PostOrder_NonR()
+	{
+		stack<BinaryTreeNode<T>*> s;
+		BinaryTreeNode<T>* cur = _root;
+		BinaryTreeNode<T>* prevVisited = NULL;
+		while (cur || !s.empty())
+		{
+			while (cur)
+			{
+				s.push(cur);
+				cur = cur->_left;
+			}
+
+			BinaryTreeNode<T>* top = s.top();
+			if (top->_right == NULL
+				|| top->_right == prevVisited)
+			{
+				cout << top->_data << " ";
+				prevVisited = top;
+				s.pop();
+			}
+			else
+			{
+				cur = top->_right;
+			}
+		}
+
+		cout << endl;
+	}
 	//建立二叉树(index为数组下标)
 	BinaryTreeNode<T>* CreateTree(const T*a,size_t size,size_t& index)
 	{
